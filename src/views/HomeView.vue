@@ -4,7 +4,7 @@
     <div class="home">
       <h1>Proyectos:</h1>
       <div class="cards-container">
-        <Card v-for="(proyecto, idx) in proyectos" :key="idx" :title="proyecto.title" :description="proyecto.description" />
+        <Card v-for="(proyecto, idx) in proyectos" :key="idx" :img="proyecto.img" :title="proyecto.title" :description="proyecto.description" :languages ="proyecto.languages" :date="proyecto.date" />
       </div>
     </div>
     <Footer />
@@ -17,13 +17,13 @@ import Footer from '../components/Footer.vue';
 import Card from '../components/Card.vue';
 
 const proyectos = [
-  { title: 'Proyecto 1', description: 'Descripcion del proyecto 1' },
-  { title: 'Proyecto 2', description: 'Descripcion del proyecto 2' },
-  { title: 'Proyecto 3', description: 'Descripcion del proyecto 3' },
-  { title: 'Proyecto 4', description: 'Descripcion del proyecto 4' },
-  { title: 'Proyecto 5', description: 'Descripcion del proyecto 5' }
+  { title: 'Formulario_App', description: 'Formulario para mi empresa familiar que toma los datos de los clientes y los guarda en una base de datos en mongoDB',
+   img: '/src/assets/Formulario_App.png', languages: 'Python', date: '' }, 
+  { title: 'Proyecto 2', description: 'Descripcion del proyecto 2', img:'', languages: '', date: '' },
+  { title: 'Proyecto 3', description: 'Descripcion del proyecto 3', img:'', languages: '', date: '' },
+  { title: 'Proyecto 4', description: 'Descripcion del proyecto 4', img:'', languages: '', date: '' },
+  { title: 'Proyecto 5', description: 'Descripcion del proyecto 5', img:'', languages: '', date: '' }
 ]
-
 </script>
 
 <style scoped>
