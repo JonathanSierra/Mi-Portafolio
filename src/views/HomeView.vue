@@ -1,29 +1,46 @@
 <template>
   <div class="page-container">
     <Header />
-    <div class="home">
-      <h1>Proyectos:</h1>
-      <div class="cards-container">
-        <Card v-for="(proyecto, idx) in proyectos" :key="idx" :img="proyecto.img" :title="proyecto.title" :description="proyecto.description" :languages ="proyecto.languages" :date="proyecto.date" />
+    <div class="home-content">
+      <section>
+      <div class="myself">
+        <div class="myself-profile">
+          <img src="" alt="Jonathan Sierra.png">
+          <ul>
+            <li>
+              <h2>Jonathan Andres Sierra Sierra</h2>
+            </li>
+            <li>
+              <p>Santa Marta - Colombia <img src="/src/assets/Colombia-flag.png" alt="Bandera de colombia"></p>
+            </li>
+            <li>
+              <p>19 años</p>
+            </li>
+            <li>
+              <p>Estudiante</p>
+            </li>
+          </ul>
+        </div>
+        <div class="myself-description">
+          <p>Desarrollador de software Colombiano, con experiencia en Vue, TypeScript y Python. Especializado en <strong>Backend.</strong></p>
+        </div>
       </div>
+      </section>
+      <section>
+        <div class="about-me">
+          <h1>Sobre mi</h1>
+          <p>Soy Jonathan Sierra, tengo 19 años, soy estudiante de la CBN en el programa desarrollo de software y aplicaciones moviles. 
+            Naci un 16 de abril de 2006 en Santa Marta, Colombia, aspiro a ser un desarrollador de software experto.</p>
+          </div>
+      </section>
     </div>
     <Footer />
   </div>
 </template>
 
-<script setup lang="ts">
-import Header from '../components/Header.vue';
+<script setup>
 import Footer from '../components/Footer.vue';
-import Card from '../components/Card.vue';
-
-const proyectos = [
-  { title: 'Formulario_App', description: 'Formulario para mi empresa familiar que toma los datos de los clientes y los guarda en una base de datos en mongoDB',
-   img: '/src/assets/Formulario_App.png', languages: 'Python', date: '' }, 
-  { title: 'Proyecto 2', description: 'Descripcion del proyecto 2', img:'', languages: '', date: '' },
-  { title: 'Proyecto 3', description: 'Descripcion del proyecto 3', img:'', languages: '', date: '' },
-  { title: 'Proyecto 4', description: 'Descripcion del proyecto 4', img:'', languages: '', date: '' },
-  { title: 'Proyecto 5', description: 'Descripcion del proyecto 5', img:'', languages: '', date: '' }
-]
+import Header from '../components/Header.vue';
 </script>
 
 <style scoped>
@@ -33,31 +50,90 @@ const proyectos = [
   min-height: 100dvh;
 }
 
-.home {
+.home-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+}
+
+.myself {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1rem;
+  border: 2px solid red;
+  width: 50dvw;
+}
+
+.myself-profile {
+  display: flex;
+  border: 2px solid red;
+  margin: 1rem;
+}
+
+.myself-profile img {
+  border: 2px solid red;
+  margin: 1rem;
+  height: 10rem;
+}
+
+.myself-profile ul {
+  border: 2px solid red;
+  display: flex;
+  padding: 0;
+  align-items: baseline;
+  flex-direction: column;
+  list-style: none;
+}
+
+.myself-profile ul li {
+  margin: 0;
+}
+
+.myself-profile ul li h2 {
+  margin: 0;
+}
+
+.myself-profile ul li p {
+  margin: 0;
+  display: flex;
+}
+.myself-profile ul li p img{
+  margin: 2px 4px;
+  width: 20px;
+  height: 16px;
+}
+
+.myself-description {
   flex: 1;
   display: flex;
+  border: 2px solid red;
+  margin: 1rem;
+}
+
+.myself-description p {
+  font-size: 20px;
+}
+
+section{
+  margin: 3rem;
+}
+
+.about-me{
+  display: flex;
   flex-direction: column;
+  width: 50dvw;
+  border: 2px solid red;
 }
 
-.cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1rem 0;
+.about-me h1{
+  font-size: 40px;
+  text-align: left;
 }
-
-h1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #42b983;
-  border-radius: 15px;
-  height: 2rem;
-  width: 150px;
-  margin-left: 10px;
-  padding: 5px;
-  color: #ffffff;
-  font-size: 25px;
+.about-me p{
+  text-align: left;
+  font-size: 20px;
 }
 </style>
