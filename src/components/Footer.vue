@@ -1,4 +1,5 @@
 <template>
+  <div class="stripe"></div>
   <footer>
     <div class="footer-content">
       <nav>
@@ -21,8 +22,8 @@
           </a>
         </li>
       </nav>
-      <div class="copyright">© 2025 Jonathan Sierra. Todos los derechos reservados.</div>
     </div>
+    <div class="copyright">© 2025 Jonathan Sierra. Todos los derechos reservados.</div>
   </footer>
 </template>
 
@@ -31,29 +32,39 @@
 </script>
 
 <style scoped>
+.stripe{
+  width: 100%;
+  background: linear-gradient(to right, #5665cd 60%, #204491);
+  height: 1rem;
+}
+
 footer {
   display: flex;
   color: #ffff;
+  flex-direction: column;
   width: 100%;
-  min-height: 200px;
-  background-color: #224737
+  min-height: 300px;
+  background-color: #ffff;
 }
 
 .footer-content {
+  flex: 1;
   display: flex;
   width: 100%;
+  justify-content: end;
+  align-items: center;
   flex-direction: column;
 }
 
 nav {
-  flex: 1;
-  background-color: #0f251c;
+  background-color: #646cff;
   display: flex;
   flex-direction: column;
   border-radius: 15px;
   margin: 1rem;
   padding: 1rem;
   width: 12rem;
+  height: 7rem;
   justify-content: center;
   gap: 8px;
 }
@@ -97,7 +108,7 @@ nav li:hover img {
 }
 
 .copyright {
-  background-color: #0f251c;
+  background-color: #183b87;
   width: 100%;
   text-align: center;
   padding: 10px 0;
