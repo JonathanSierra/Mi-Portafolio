@@ -4,33 +4,45 @@
     <div class="home-content">
       <section>
         <div class="myself">
+          <img src="" alt="Jonathan Sierra.png">
           <div class="myself-profile">
-            <img src="" alt="Jonathan Sierra.png">
-            <ul>
-              <li>
-                <h2>Jonathan Andres Sierra Sierra</h2>
-              </li>
-              <li>
-                <p>Santa Marta - Colombia <img src="/src/assets/Colombia-flag.png" alt="Bandera de colombia"></p>
-              </li>
-              <li>
-                <p>19 años</p>
-              </li>
-              <li>
-                <p>Estudiante</p>
-              </li>
-            </ul>
-          </div>
-          <div class="myself-description">
-            <p>Desarrollador de software <strong>Fullstack</strong> Colombiano, con experiencia en <strong
-                class="vue">Vue</strong>, <strong class="ts">TypeScript</strong>, <strong class="py">Python</strong> y
-              <strong class="java">Java</strong>. Especializado en <strong>Backend.</strong>
-            </p>
+              <ul>
+                  <h2>Jonathan Andres<br>Sierra Sierra</h2>
+                <!-- <li>
+                  <p>Santa Marta - Colombia <img src="/src/assets/Colombia-flag.png" alt="Bandera de colombia"></p>
+                </li>
+                <li>
+                  <p>19 años</p>
+                </li>
+                <li>
+                  <p>Estudiante</p>
+                </li> -->
+              </ul>
+              <div class="myself-description">
+                <p>Desarrollador de software <strong>Fullstack</strong> Colombiano, con experiencia en <strong
+                  class="vue">Vue</strong>, <strong class="ts">TypeScript</strong>, <strong class="py">Python</strong> y
+                  <strong class="java">Java</strong>. Especializado en <strong>Backend.</strong>
+                </p>
+              </div>
           </div>
         </div>
+        <div class="professional-info">
+            <p>Futura Frase...</p>
+            <div>
+              <ul>
+                <h2>Años de experiencia: {{ añosExperiencia }}</h2>
+                <li>Experiencia...</li>
+              </ul>
+              <ul>
+                <h2>Lenguajes aprendidos:</h2>
+                <li>Python</li>
+                <li>Java</li>
+                <li>C#</li>
+              </ul>
+            </div>
+        </div>
       </section>
-      <button class="cssbuttons-io">
-        <a href="/portafolio">
+        <a href="/portafolio" class="cssbuttons-io">
         <span><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 0h24v24H0z" fill="none"></path>
             <path
@@ -39,13 +51,14 @@
           </svg>
           Proyectos</span>
           </a>
-      </button>
+          <Stripe class="stripe"></Stripe>
       <section>
         <div class="about-me">
           <h1>Sobre mi</h1>
           <p>Soy Jonathan Sierra, tengo 19 años, soy estudiante de la CBN en el programa desarrollo de software y
-            aplicaciones moviles.
-            Naci un 16 de abril de 2006 en Santa Marta, Colombia, aspiro a ser un desarrollador de software experto.</p>
+            aplicaciones moviles. Naci un 16 de abril de 2006 en Santa Marta, Colombia, aspiro a ser un desarrollador de software fullstack experto.
+            Desde siempre me ha gustado estar en un computador, practicamente desde que tengo memoria he estado en uno.
+          </p>
         </div>
       </section>
     </div>
@@ -56,9 +69,18 @@
 <script setup>
 import Footer from '../components/Footer.vue';
 import Header from '../components/Header.vue';
+import Stripe from '../components/Stripe.vue';
+
+let añosExperiencia = 1
 </script>
 
 <style scoped>
+.stripe{
+  width: 70dvw;
+  height: 5px;
+  margin: 1rem 0 1rem 0;
+}
+
 .page-container {
   display: flex;
   flex-direction: column;
@@ -76,42 +98,50 @@ import Header from '../components/Header.vue';
 .myself {
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  border: 2px solid red;
-  width: 31dvw;
+  flex-direction: row;
+  margin: 3rem 0 0 0;
+  width: 40dvw;
 }
 
 .myself-profile {
   display: flex;
-  border: 2px solid red;
-  margin: 1rem 1rem 0 1rem;
-}
-
-.myself-profile img {
+  flex-direction: column;
   border: 2px solid red;
   margin: 1rem;
-  height: 13rem;
-  width: 15rem;
+  width: 60%;
+}
+
+.myself img {
+  border: 2px solid red;
+  margin: 1rem 0 1rem 1rem;
+  width: 40%;
+  border-radius: 25px;
+  box-shadow: #428adc 0px 0px 20px 0px;
 }
 
 .myself-profile ul {
-  border: 2px solid red;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 1rem 0 1rem;
   padding: 0;
-  margin: 1rem 1rem 1rem 0;
-  align-items: baseline;
   flex-direction: column;
   list-style: none;
 }
 
-.myself-profile ul li {
+/* .myself-profile ul li {
   margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight: bold;
   font-size: 20px;
-}
+} */
 
-.myself-profile ul li h2 {
-  margin: 0 0 1rem 0;
+.myself-profile ul h2 {
+  margin: 0;
+  font-size: 32px;
+  color: #428adc;
 }
 
 .myself-profile ul li p {
@@ -126,14 +156,34 @@ import Header from '../components/Header.vue';
 }
 
 .myself-description {
-  flex: 1;
   display: flex;
-  border: 2px solid red;
   margin: 0 1rem 1rem 1rem;
 }
 
 .myself-description p {
   font-size: 24px;
+}
+
+.professional-info p{
+  border: 2px solid red;
+  color: #5254e3;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.professional-info div{
+  display: flex;
+  justify-content: space-evenly;
+  border: 2px solid red;
+}
+
+.professional-info ul{
+  margin: 0;
+  list-style: none;
+}
+
+.professional-info ul h2{
+  color: #428adc;
 }
 
 section {
@@ -144,7 +194,7 @@ section {
   display: flex;
   flex-direction: column;
   width: 50dvw;
-  border: 2px solid red;
+  margin: 0 0 4rem 0;
 }
 
 .about-me h1 {
@@ -189,9 +239,10 @@ strong {
   border-radius: 0.8em;
   cursor: pointer;
   border: 3px solid #457bf1;
-  background: linear-gradient(to right, #2d30e2, #2a7ddd);
+  background: linear-gradient(to right, #5254e3, #428adc);
   color: ghostwhite;
   overflow: hidden;
+  margin: 0 0 3rem 0;
 }
 
 .cssbuttons-io svg {
@@ -204,6 +255,7 @@ strong {
   position: relative;
   z-index: 10;
   transition: color 0.4s;
+  color: #457bf1;
   display: inline-flex;
   align-items: center;
   padding: 0.8em 1.2em 0.8em 1.05em;
@@ -237,11 +289,11 @@ strong {
 }
 
 .cssbuttons-io a{
-  color: #457bf1;
+  color: inherit;
 }
 
-.cssbuttons-io a:hover{
-  color: #ffff;
+.cssbuttons-io:hover span {
+  color: #fff;
 }
 
 /* IO BUTTON */

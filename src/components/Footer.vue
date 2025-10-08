@@ -1,5 +1,5 @@
 <template>
-  <div class="stripe"></div>
+  <Stripe></Stripe>
   <footer>
     <div class="footer-content">
       <nav>
@@ -28,16 +28,12 @@
 </template>
 
 <script setup>
+import Stripe from './Stripe.vue';
+
 
 </script>
 
 <style scoped>
-.stripe{
-  width: 100%;
-  background: linear-gradient(to right, #5665cd 60%, #204491);
-  height: 1rem;
-}
-
 footer {
   display: flex;
   color: #ffff;
@@ -66,6 +62,7 @@ nav {
   width: 12rem;
   height: 7rem;
   justify-content: center;
+  box-shadow: #203767 0px 0px 12px 0px;
   gap: 8px;
 }
 
@@ -108,7 +105,8 @@ nav li:hover img {
 }
 
 .copyright {
-  background-color: #183b87;
+  background: linear-gradient(to right, #4c5dd3 60%, #203767);
+  ;
   width: 100%;
   text-align: center;
   padding: 10px 0;

@@ -37,7 +37,7 @@ header {
   display: flex;
   width: 100%;
   min-height: 160px;
-  background-color: #2f42bd;
+  background: #5b6ddf;
   color: white;
   text-align: center;
 }
@@ -71,7 +71,7 @@ header {
   width: 100%;
   font-size: 1rem;
   font-weight: bold;
-  background-color: #183b87;
+  background-color: #395eaf;
 }
 
 .autor p{

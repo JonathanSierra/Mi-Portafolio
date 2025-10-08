@@ -4,7 +4,8 @@
     <div class="portafolio-content">
       <h1>Proyectos:</h1>
       <div class="cards-container">
-        <Card v-for="(proyecto, idx) in proyectos" :key="idx" :img="proyecto.img" :title="proyecto.title" :description="proyecto.description" :languages ="proyecto.languages" :date="proyecto.date" />
+        <Card v-for="(proyecto, idx) in proyectos" :key="idx" :img="proyecto.img" :title="proyecto.title"
+          :description="proyecto.description" :languages="proyecto.languages" :date="proyecto.date" />
       </div>
     </div>
     <Footer />
@@ -17,12 +18,14 @@ import Footer from '../components/Footer.vue';
 import Card from '../components/Card.vue';
 
 const proyectos = [
-  { title: 'Formulario_App', description: 'Formulario para mi empresa familiar que toma los datos de los clientes y los guarda en una base de datos en mongoDB',
-   img: '/src/assets/Formulario_App.png', languages: 'Python', date: '' }, 
-  { title: 'Proyecto 2', description: 'Descripcion del proyecto 2', img:'', languages: '', date: '' },
-  { title: 'Proyecto 3', description: 'Descripcion del proyecto 3', img:'', languages: '', date: '' },
-  { title: 'Proyecto 4', description: 'Descripcion del proyecto 4', img:'', languages: '', date: '' },
-  { title: 'Proyecto 5', description: 'Descripcion del proyecto 5', img:'', languages: '', date: '' }
+  {
+    title: 'Formulario_App', description: 'Formulario para mi empresa familiar que toma los datos de los clientes y los guarda en una base de datos en mongoDB',
+    img: '/src/assets/Formulario_App.png', languages: 'Python', date: ''
+  },
+  { title: 'Proyecto 2', description: 'Descripcion del proyecto 2', img: '', languages: '', date: '' },
+  { title: 'Proyecto 3', description: 'Descripcion del proyecto 3', img: '', languages: '', date: '' },
+  { title: 'Proyecto 4', description: 'Descripcion del proyecto 4', img: '', languages: '', date: '' },
+  { title: 'Proyecto 5', description: 'Descripcion del proyecto 5', img: '', languages: '', date: '' }
 ]
 </script>
 
@@ -51,7 +54,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #42b983;
+  background-color: #457bf1;
   border-radius: 15px;
   height: 2rem;
   width: 150px;
