@@ -6,9 +6,9 @@
         <div class="myself">
           <img src="" alt="Jonathan Sierra.png">
           <div class="myself-profile">
-              <ul>
-                  <h2>Jonathan Andres<br>Sierra Sierra</h2>
-                <!-- <li>
+            <ul>
+              <h2>Jonathan Andres<br>Sierra Sierra</h2>
+              <!-- <li>
                   <p>Santa Marta - Colombia <img src="/src/assets/Colombia-flag.png" alt="Bandera de colombia"></p>
                 </li>
                 <li>
@@ -17,32 +17,32 @@
                 <li>
                   <p>Estudiante</p>
                 </li> -->
-              </ul>
-              <div class="myself-description">
-                <p>Desarrollador de software <strong>Fullstack</strong> Colombiano, con experiencia en <strong
+            </ul>
+            <div class="myself-description">
+              <p>Desarrollador de software <strong>Fullstack</strong> Colombiano, con experiencia en <strong
                   class="vue">Vue</strong>, <strong class="ts">TypeScript</strong>, <strong class="py">Python</strong> y
-                  <strong class="java">Java</strong>. Especializado en <strong>Backend.</strong>
-                </p>
-              </div>
+                <strong class="java">Java</strong>. Especializado en <strong>Backend.</strong>
+              </p>
+            </div>
           </div>
         </div>
         <div class="professional-info">
-            <p>Futura Frase...</p>
-            <div>
-              <ul>
-                <h2>Años de experiencia: {{ añosExperiencia }}</h2>
-                <li>Experiencia...</li>
-              </ul>
-              <ul>
-                <h2>Lenguajes aprendidos:</h2>
-                <li>Python</li>
-                <li>Java</li>
-                <li>C#</li>
-              </ul>
-            </div>
+          <p>Futura Frase...</p>
+          <div>
+            <ul>
+              <h2>Años de experiencia: {{ añosExperiencia }}</h2>
+              <li>Experiencia...</li>
+            </ul>
+            <ul>
+              <h2>Lenguajes aprendidos:</h2>
+              <li>Python</li>
+              <li>Java</li>
+              <li>C#</li>
+            </ul>
+          </div>
         </div>
       </section>
-        <a href="/portafolio" class="cssbuttons-io">
+      <button @click="showProjects" class="cssbuttons-io">
         <span><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 0h24v24H0z" fill="none"></path>
             <path
@@ -50,14 +50,23 @@
               fill="currentColor"></path>
           </svg>
           Proyectos</span>
-          </a>
-          <Stripe class="stripe"></Stripe>
+      </button>
+      <div v-if="projectsVisible" class="projects-content">
+        <h1>Proyectos</h1>
+        <div class="cards-container">
+          <Card v-for="(proyecto, idx) in proyectos" :key="idx" :img="proyecto.img" :title="proyecto.title"
+            :description="proyecto.description" :languages="proyecto.languages" :date="proyecto.date" />
+        </div>
+      </div>
+      <Stripe class="stripe"></Stripe>
       <section>
         <div class="about-me">
           <h1>Sobre mi</h1>
-          <p>Soy Jonathan Sierra, tengo 19 años, soy estudiante de la CBN en el programa desarrollo de software y
-            aplicaciones moviles. Naci un 16 de abril de 2006 en Santa Marta, Colombia, aspiro a ser un desarrollador de software fullstack experto.
-            Desde siempre me ha gustado estar en un computador, practicamente desde que tengo memoria he estado en uno.
+          <p>Soy Jonathan Sierra, tengo 19 años y actualmente estudio en el programa de Desarrollo de Software y
+            Aplicaciones Móviles en la CBN. <br>
+            Nací el 16 de abril de 2006 en Santa Marta, Colombia.Me apasiona el desarrollo fullstack y aspiro a
+            convertirme en un desarrollador experto. Desde siempre me ha fascinado la tecnología, prácticamente he
+            estado frente a un computador desde que tengo memoria.
           </p>
         </div>
       </section>
@@ -67,15 +76,34 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+import Card from '../components/Card.vue';
 import Footer from '../components/Footer.vue';
 import Header from '../components/Header.vue';
 import Stripe from '../components/Stripe.vue';
 
+const proyectos = [
+  {
+    title: 'Formulario_App', description: 'Formulario para mi empresa familiar que toma los datos de los clientes y los guarda en una base de datos en mongoDB',
+    img: '/src/assets/Formulario_App.png', languages: 'Python', date: ''
+  },
+  { title: 'Proyecto 2', description: 'Descripcion del proyecto 2', img: '', languages: '', date: '' },
+  { title: 'Proyecto 3', description: 'Descripcion del proyecto 3', img: '', languages: '', date: '' },
+  { title: 'Proyecto 4', description: 'Descripcion del proyecto 4', img: '', languages: '', date: '' },
+  { title: 'Proyecto 5', description: 'Descripcion del proyecto 5', img: '', languages: '', date: '' }
+]
+
 let añosExperiencia = 1
+
+let projectsVisible = ref(false)
+
+function showProjects() {
+  projectsVisible.value = !projectsVisible.value
+}
 </script>
 
 <style scoped>
-.stripe{
+.stripe {
   width: 70dvw;
   height: 5px;
   margin: 1rem 0 1rem 0;
@@ -164,26 +192,59 @@ let añosExperiencia = 1
   font-size: 24px;
 }
 
-.professional-info p{
+.professional-info p {
   border: 2px solid red;
   color: #5254e3;
   font-size: 24px;
   font-weight: bold;
 }
 
-.professional-info div{
+.professional-info div {
   display: flex;
   justify-content: space-evenly;
   border: 2px solid red;
 }
 
-.professional-info ul{
+.professional-info ul {
   margin: 0;
   list-style: none;
 }
 
-.professional-info ul h2{
+.professional-info ul h2 {
   color: #428adc;
+}
+
+.projects-content {
+  width: 100%;
+  height: 75dvh;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.projects-content h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #646cff;
+  box-shadow: #646cff 0px 0px 6px 0px;
+  border-radius: 15px;
+  height: 2rem;
+  width: 150px;
+  margin: 5rem 0 3rem 0;
+  padding: 5px;
+  color: #ffffff;
+  font-size: 25px;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  margin: 0 0 5rem 0;
 }
 
 section {
@@ -288,14 +349,9 @@ strong {
   transform: scale(0.95);
 }
 
-.cssbuttons-io a{
-  color: inherit;
-}
-
 .cssbuttons-io:hover span {
   color: #fff;
 }
 
 /* IO BUTTON */
-
 </style>

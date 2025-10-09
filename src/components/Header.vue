@@ -74,7 +74,7 @@ header {
   background-color: #395eaf;
 }
 
-.autor p{
+.autor p {
   margin: 0 0 0 0.5rem;
 }
 

@@ -2,7 +2,8 @@
   <div class="page-container">
     <Header />
     <div class="portafolio-content">
-      <h1>Proyectos:</h1>
+      <h1>Proyectos</h1>
+      <Stripe class="stripe"></Stripe>
       <div class="cards-container">
         <Card v-for="(proyecto, idx) in proyectos" :key="idx" :img="proyecto.img" :title="proyecto.title"
           :description="proyecto.description" :languages="proyecto.languages" :date="proyecto.date" />
@@ -16,6 +17,7 @@
 import Header from '../components/Header.vue';
 import Footer from '../components/Footer.vue';
 import Card from '../components/Card.vue';
+import Stripe from '../components/Stripe.vue';
 
 const proyectos = [
   {
@@ -39,7 +41,13 @@ const proyectos = [
 .portafolio-content {
   flex: 1;
   display: flex;
+  align-items: center;
+  min-height: 100dvh;
   flex-direction: column;
+}
+
+.portafolio-content h1{
+  margin: 8rem 0 2rem 0;
 }
 
 .cards-container {
@@ -54,7 +62,8 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #457bf1;
+  background-color: #646cff;
+  box-shadow: #646cff 0px 0px 6px 0px;
   border-radius: 15px;
   height: 2rem;
   width: 150px;
@@ -62,5 +71,11 @@ h1 {
   padding: 5px;
   color: #ffffff;
   font-size: 25px;
+}
+
+.stripe{
+  width: 70dvw;
+  height: 5px;
+  margin: 1rem 0 2rem 0;
 }
 </style>

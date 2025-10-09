@@ -54,11 +54,11 @@ function cerrarInfo() {
     max-width: 250px;
     min-width: 250px;
     cursor: pointer;
+    transition: ease-in-out 150ms;
 }
 
 .card:hover {
     scale: 1.05;
-    transition: ease-in-out 150ms;
 }
 
 img {
